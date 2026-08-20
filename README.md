@@ -31,23 +31,20 @@ Bloome 是一个 AI Agent IM 平台：不是你对着一个 bot 单打独斗，�
 - **网络与 WebSocket 分析**：请求调用栈、XHR 断点、Set-Cookie 识别、原始 body/header 导出、WebSocket 消息分组
 - **浏览器状态重放**：清理当前站点 cookies / cache / storage / sessionStorage，配合 reload 复现 cookie 和风控流程
 - **默认有头 + 持久化登录态**：看得到浏览器，cookies / localStorage 跨会话保留
-- **专用 Patchright 内核**：默认依赖本项目独立维护的 Patchright fork，修复上游读取 `window.__pwClock` 所形成的已知共享特征
+- **专用 Patchright 内核**：默认依赖本项目独立维护的 Patchright fork，持续修复上游已知的共享实现特征
 - **可选反检测层**：专用 Patchright 协议层 stealth 默认启用；强反爬站点可加 `--cloak` 使用 CloakBrowser 二进制
 
 ## 专用 Patchright fork
 
 js-reverse-mcp 不再直接依赖 Patchright 的大众发行包，而是使用专门为本 MCP 编译发布的 [`@zhizhuodemao/patchright`](https://www.npmjs.com/package/@zhizhuodemao/patchright)。这个 fork 会在独立仓库持续维护，并随本 MCP 的实际检测样本演进。
 
-我们确认，上游注入脚本初始化时会直接求值 `window.__pwClock`。站点可以把该名称预先定义成 getter 诱饵：即使属性值是 `undefined`，仅仅读取它也会留下稳定、可归因的自动化信号。专用 fork 将这段初始化改为通过 CDP `Runtime.getProperties` 获取属性描述符；只有它是普通 data property 时才读取已有值，遇到 accessor property 不触发 getter。
+- 不再直接依赖 Patchright 大众发行包
+- 针对已确认的上游共享实现特征进行协议层调整并重新编译发布
+- 反检测调整不依赖页面级 JS 注入
+- 保留 evaluate、locator 和页面控制等原始能力
+- fork 在面向本 MCP 的专用仓库中持续维护
 
-这项修改遵守本项目的边界：
-
-- **不向页面注入反检测 JS**，不覆盖、删除或伪造 `window.__pwClock`
-- **保留原始 data property 行为**，Patchright 正常的 evaluate、locator 和页面控制能力不变
-- **真实 Google Chrome 回归通过**，主世界 `page.evaluate` 与 `locator.evaluate` 均不会触发诱饵 getter
-- **减少共享实现特征**，避免直接继承大众发行版已经公开、可批量匹配的 `__pwClock` 读取行为
-
-专用 fork 的目标是持续消除已确认的共享实现特征，而不是承诺浏览器自动化“绝对不可检测”；行为、环境、CDP 使用方式以及其他浏览器特征仍可能成为检测依据。
+公开文档仅说明设计边界，不展开内部检测样本与实现细节。专用 fork 的目标是减少已确认的共享实现特征，而不是承诺浏览器自动化绝对不可检测。
 
 ## 系统要求
 
@@ -129,12 +126,12 @@ npm run build
 
 反检测是 js-reverse-mcp 的底层支撑能力之一。包装层（这个 MCP 自己）**零 JS 注入**、不做 `Object.defineProperty` hack（那本身就是检测信号）。所有反检测都在两个互不重叠的层：
 
-| 层                             | 默认模式                                                                                                                                                          | `--cloak` 模式                                                                                                                    |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **协议层**（CDP）              | 专用 Patchright fork：不调 `Runtime.enable` / `Console.enable`，在 isolated world 里执行 evaluate，移除自动化 launch flag，并消除已知 `__pwClock` getter 读取特征 | 同                                                                                                                                |
-| **源码层**（C++ 二进制 patch） | 无 —— 直接用系统 Google Chrome                                                                                                                                    | CloakBrowser 二进制（按平台提供源码层指纹 patch，覆盖 `navigator.webdriver`、canvas、WebGL、audio、GPU、字体、屏幕、WebRTC、TLS） |
-| **Profile 目录**               | `~/.cache/chrome-devtools-mcp/chrome-profile`（持久化登录态）                                                                                                     | `~/.cache/chrome-devtools-mcp/cloak-profile`（与默认物理隔离）                                                                    |
-| **实际浏览器**                 | 你装的 Google Chrome（带 Web Store、扩展、sync）                                                                                                                  | 定制 Chromium 编译版（无 Google 服务、无 Web Store）                                                                              |
+| 层                             | 默认模式                                                                                                                                              | `--cloak` 模式                                                                                                                    |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **协议层**（CDP）              | 专用 Patchright fork：不调 `Runtime.enable` / `Console.enable`，在 isolated world 里执行 evaluate，移除自动化 launch flag，并持续修复已知共享实现特征 | 同                                                                                                                                |
+| **源码层**（C++ 二进制 patch） | 无 —— 直接用系统 Google Chrome                                                                                                                        | CloakBrowser 二进制（按平台提供源码层指纹 patch，覆盖 `navigator.webdriver`、canvas、WebGL、audio、GPU、字体、屏幕、WebRTC、TLS） |
+| **Profile 目录**               | `~/.cache/chrome-devtools-mcp/chrome-profile`（持久化登录态）                                                                                         | `~/.cache/chrome-devtools-mcp/cloak-profile`（与默认物理隔离）                                                                    |
+| **实际浏览器**                 | 你装的 Google Chrome（带 Web Store、扩展、sync）                                                                                                      | 定制 Chromium 编译版（无 Google 服务、无 Web Store）                                                                              |
 
 另外几个导航级措施（两种模式都生效）：
 
