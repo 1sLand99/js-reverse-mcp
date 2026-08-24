@@ -6,6 +6,20 @@ An AI-first / AI-native JavaScript reverse engineering MCP server that lets codi
 
 It does not simply expose raw Chrome DevTools APIs to the model. It reorganizes scripts, breakpoints, network traffic, WebSocket data, browser state, and local file I/O into tools shaped for continuous AI Agent reasoning and action. Anti-detection is one supporting capability: protocol-layer stealth comes from a dedicated [Patchright fork](https://github.com/zhizhuodemao/patchright-mcp) rebuilt and maintained for this MCP, plus optional [CloakBrowser](https://github.com/CloakHQ/CloakBrowser) source-level fingerprint mode for strong anti-bot sites.
 
+## ☁️ Sponsored by IPWO
+
+<p align="center">
+  <a href="https://www.ipwo.net/?ref=githubmcp">
+    <img src="images/ipwo-residential-proxy.png" alt="IPWO residential proxies: stable connections, global nodes, and multi-protocol support" width="100%">
+  </a>
+</p>
+
+IPWO residential proxies offer flexible proxy configuration, letting developers choose the network environment that fits each task: web access, request testing, localized-content analysis, and automated workflows.
+
+For projects involving JavaScript reverse engineering, browser debugging, and web-network analysis, residential proxies can complement your network setup and make regional access and testing more flexible.
+
+👉 [Free trial](https://www.ipwo.net/?ref=githubmcp). Use code `0204` for 10% off.
+
 ## ☁️ Sponsored by Bloome
 
 <p align="center">

@@ -6,6 +6,20 @@ AI-first / AI-native 的 JavaScript 逆向工程 MCP Server，让你的 AI 编�
 
 它不是把 Chrome DevTools API 原样搬给模型，而是把脚本、断点、网络、WebSocket、浏览器状态和本地文件 I/O 重新组织成适合 AI Agent 连续推理和操作的工具。反检测是其中一部分能力：默认使用为本 MCP 重新编译发布、独立维护的 [Patchright fork](https://github.com/zhizhuodemao/patchright-mcp) 提供协议层 stealth，对强反爬站点可选启用 [CloakBrowser](https://github.com/CloakHQ/CloakBrowser) 源码层指纹模式。
 
+## ☁️ 赞助 · Sponsored by IPWO
+
+<p align="center">
+  <a href="https://www.ipwo.net/?ref=githubmcp">
+    <img src="images/ipwo-residential-proxy.png" alt="IPWO 住宅代理：稳定连接、全球节点、多协议支持" width="100%">
+  </a>
+</p>
+
+IPWO 住宅代理支持灵活的代理配置，开发者可以根据不同任务选择相应的网络环境，用于网页访问、请求测试、地区化内容分析及自动化工作流。
+
+对于涉及 JS 逆向、浏览器调试和 Web 网络分析的项目，住宅代理也可以作为网络环境的一种补充选择，帮助开发者更灵活地满足不同地区的访问与测试需求。
+
+👉 [免费测试入口](https://www.ipwo.net/?ref=githubmcp)，9 折优惠码：`0204`
+
 ## ☁️ 赞助 · Sponsored by Bloome
 
 <p align="center">
