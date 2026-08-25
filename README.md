@@ -28,12 +28,14 @@ IPWO 住宅代理支持灵活的代理配置，开发者可以根据不同任务
   </a>
 </p>
 
-js-reverse-mcp × Infistar.cc 无限星河｜全模型 API · 稳定驱动 AI 辅助调试<br/>
-感谢 Infistar.cc 无限星河赞助并为 js-reverse-mcp 提供模型服务支持！<br/>
-⚡ 稳定承载复杂调试任务：提供企业级高并发通道与多节点冗余，价格低至官方渠道 1 折，减少限流、429 和长任务断连问题。<br/>
-🧠 一个 API Key 接入主流模型：支持 ChatGPT、Claude、Gemini、Kimi、GLM、DeepSeek 等模型，适配 Claude Code、Codex、Cursor 等 AI 编程工具。<br/>
-🔎 助力授权调试与安全研究：适用于脚本检索、断点分析、网络请求追踪、调用栈检查和代码逻辑理解等多步骤任务。<br/>
-📦 项目用户专属福利：通过 [专属推广链接](https://www.infistar.cc/register?aff=JJXMRC86&ref_source=link) 注册并完成首次调用，即可领取 5 美元等值测试额度 / 首充专属优惠。
+**js-reverse-mcp × Infistar.cc 无限星河｜全模型 API · 稳定驱动 AI 辅助调试**
+
+感谢 Infistar.cc 无限星河赞助并为 js-reverse-mcp 提供模型服务支持！
+
+- ⚡ **稳定承载复杂调试任务**：提供企业级高并发通道与多节点冗余，价格低至官方渠道 1 折，减少限流、429 和长任务断连问题。
+- 🧠 **一个 API Key 接入主流模型**：支持 ChatGPT、Claude、Gemini、Kimi、GLM、DeepSeek 等模型，适配 Claude Code、Codex、Cursor 等 AI 编程工具。
+- 🔎 **助力授权调试与安全研究**：适用于脚本检索、断点分析、网络请求追踪、调用栈检查和代码逻辑理解等多步骤任务。
+- 📦 **项目用户专属福利**：通过 [专属推广链接](https://www.infistar.cc/register?aff=JJXMRC86&ref_source=link) 注册并完成首次调用，即可领取 5 美元等值测试额度 / 首充专属优惠。
 
 定位：Claude Code / Codex 模型 API 配置支持。
 
