@@ -1,6 +1,6 @@
 # 使用无限星河AI 配置 Codex、Claude Code 与 js-reverse-mcp
 
-> 本文由 [无限星河AI（Infistar）](https://infistar.cc/) 赞助。配置、接口调用和网页分析步骤均经过实际测试；赞助不影响对限制、风险和故障的如实说明。
+> 本文由 [无限星河AI（Infistar）](https://www.infistar.cc/register?aff=JJXMRC86&ref_source=link) 赞助。配置、接口调用和网页分析步骤均经过实际测试；赞助不影响对限制、风险和故障的如实说明。
 
 这篇教程解决两层配置问题：
 
@@ -30,7 +30,7 @@ npm --version
 
 ## 2. 注册账户并创建 API Key
 
-1. 打开 [无限星河AI 注册页面](https://infistar.cc/register) 完成注册和登录。
+1. 打开 [无限星河AI 注册页面](https://www.infistar.cc/register?aff=JJXMRC86&ref_source=link) 完成注册和登录。
 2. 进入控制台的 [令牌管理](https://infistar.cc/console/token)。
 3. 点击“添加令牌”。建议为本教程单独创建一个令牌，并设置合理的额度上限。
 4. 确认令牌所属分组能够调用准备使用的模型。
@@ -359,7 +359,7 @@ tool_timeout_sec = 180
 
 ## 参考链接
 
-- [无限星河AI](https://infistar.cc/)
+- [无限星河AI](https://www.infistar.cc/register?aff=JJXMRC86&ref_source=link)
 - [无限星河AI 文档](https://doc.infistar.cc/)
 - [Codex 接入教程](https://doc.infistar.cc/client-integrations/codex)
 - [Claude Code 接入教程](https://doc.infistar.cc/client-integrations/claude-code)

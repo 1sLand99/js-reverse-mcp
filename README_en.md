@@ -28,12 +28,11 @@ For projects involving JavaScript reverse engineering, browser debugging, and we
   </a>
 </p>
 
-js-reverse-mcp × Infistar.cc｜Model APIs for reliable AI-assisted debugging
-
-Thanks to Infistar.cc for sponsoring js-reverse-mcp and providing model-service support. ⚡ Its enterprise-grade high-concurrency channels and multi-node redundancy are designed for complex debugging tasks, helping reduce rate limits, 429 responses, and long-task disconnections.
-
-🧠 Use one API key with mainstream models including ChatGPT, Claude, Gemini, Kimi, GLM, and DeepSeek, and connect them to AI coding tools such as Claude Code, Codex, and Cursor. 🔎 It supports authorized debugging and security research workflows, including script search, breakpoint analysis, network-request tracing, call-stack inspection, and code-logic understanding.
-
+js-reverse-mcp × Infistar.cc｜Model APIs for reliable AI-assisted debugging<br/>
+Thanks to Infistar.cc for sponsoring js-reverse-mcp and providing model-service support.<br/>
+⚡ Its enterprise-grade high-concurrency channels and multi-node redundancy are designed for complex debugging tasks, helping reduce rate limits, 429 responses, and long-task disconnections.<br/>
+🧠 Use one API key with mainstream models including ChatGPT, Claude, Gemini, Kimi, GLM, and DeepSeek, and connect them to AI coding tools such as Claude Code, Codex, and Cursor.<br/>
+🔎 It supports authorized debugging and security research workflows, including script search, breakpoint analysis, network-request tracing, call-stack inspection, and code-logic understanding.<br/>
 📦 Project-user offer: register through the [dedicated link](https://www.infistar.cc/register?aff=JJXMRC86&ref_source=link), make your first call, and receive either a US$5-equivalent trial credit or an exclusive first-top-up offer.
 
 Positioning: Claude Code / Codex model API configuration support.
