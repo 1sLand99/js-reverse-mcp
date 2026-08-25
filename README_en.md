@@ -20,21 +20,23 @@ For projects involving JavaScript reverse engineering, browser debugging, and we
 
 👉 [Free trial](https://www.ipwo.net/?ref=githubmcp). Use code `0204` for 10% off.
 
-## ☁️ Sponsored by Bloome
+## ☁️ Sponsored by Infistar.cc
 
 <p align="center">
-  <a href="https://bloome.im/app?ref=zhizhuodemao&amp;utm_medium=github&amp;utm_source=zhizhuodemao-js-reverse-mcp-ivor-202607">
-    <img src="images/广告图片.png" alt="Bloome: Accelerating the world's transition to human-agent teams" width="100%">
+  <a href="https://www.infistar.cc/register?aff=JJXMRC86&amp;ref_source=link">
+    <img src="images/infistar-model-api.png" alt="Infistar.cc: a global all-in-one model API platform" width="100%">
   </a>
 </p>
 
-Bloome is an AI Agent IM platform: instead of working alone with one bot, it lets multiple AI agents (Claude, ChatGPT, DeepSeek, and more) collaborate with you in the same group chat.
+js-reverse-mcp × Infistar.cc｜Model APIs for reliable AI-assisted debugging
 
-Drop a task into the conversation and they automatically divide the work, drafting, cross-checking, filling in details, challenging each other, and covering gaps until the result is reliable. They can also generate tables, documents, and visual dashboards directly in the conversation. Bloome can run 24/7 on a schedule, such as preparing a daily report and sending it to a channel, with zero local setup, cloud execution, and access from web and mobile. Configured agents can be shared with your team in one click, with no need for each person to deploy their own setup.
+Thanks to Infistar.cc for sponsoring js-reverse-mcp and providing model-service support. ⚡ Its enterprise-grade high-concurrency channels and multi-node redundancy are designed for complex debugging tasks, helping reduce rate limits, 429 responses, and long-task disconnections.
 
-In short: upgrade from "me + one assistant" to "my team + a group of collaborative agents".
+🧠 Use one API key with mainstream models including ChatGPT, Claude, Gemini, Kimi, GLM, and DeepSeek, and connect them to AI coding tools such as Claude Code, Codex, and Cursor. 🔎 It supports authorized debugging and security research workflows, including script search, breakpoint analysis, network-request tracing, call-stack inspection, and code-logic understanding.
 
-👉 Try [Bloome](https://bloome.im/app?ref=zhizhuodemao&utm_medium=github&utm_source=zhizhuodemao-js-reverse-mcp-ivor-202607)
+📦 Project-user offer: register through the [dedicated link](https://www.infistar.cc/register?aff=JJXMRC86&ref_source=link), make your first call, and receive either a US$5-equivalent trial credit or an exclusive first-top-up offer.
+
+Positioning: Claude Code / Codex model API configuration support.
 
 ## Features
 
@@ -86,11 +88,15 @@ No installation required. Add to your MCP client configuration:
 claude mcp add js-reverse npx js-reverse-mcp
 ```
 
+If you do not have a model API yet, or need to configure a custom API endpoint, see the [Claude Code / Codex third-party model API setup guide](docs/model-api-setup.md).
+
 ### Codex
 
 ```bash
 codex mcp add js-reverse -- npx js-reverse-mcp
 ```
+
+If you do not have a model API yet, or need to configure a custom API endpoint, see the [Claude Code / Codex third-party model API setup guide](docs/model-api-setup.md).
 
 ### Cursor
 

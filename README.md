@@ -20,21 +20,23 @@ IPWO 住宅代理支持灵活的代理配置，开发者可以根据不同任务
 
 👉 [免费测试入口](https://www.ipwo.net/?ref=githubmcp)，9 折优惠码：`0204`
 
-## ☁️ 赞助 · Sponsored by Bloome
+## ☁️ 赞助 · Sponsored by Infistar.cc 无限星河
 
 <p align="center">
-  <a href="https://bloome.im/app?ref=zhizhuodemao&amp;utm_medium=github&amp;utm_source=zhizhuodemao-js-reverse-mcp-ivor-202607">
-    <img src="images/广告图片.png" alt="Bloome：Accelerating the world's transition to human-agent teams" width="100%">
+  <a href="https://www.infistar.cc/register?aff=JJXMRC86&amp;ref_source=link">
+    <img src="images/infistar-model-api.png" alt="Infistar.cc 无限星河：一站式全球大模型 API 服务平台" width="100%">
   </a>
 </p>
 
-Bloome 是一个 AI Agent IM 平台：不是你对着一个 bot 单打独斗，而是让多个 AI agent（Claude、ChatGPT、DeepSeek 等）和你待在同一个群聊里协作。
+js-reverse-mcp × Infistar.cc 无限星河｜全模型 API · 稳定驱动 AI 辅助调试
 
-把任务丢进对话，它们会自动分工——起草、交叉核对、补全细节，彼此挑错、互相补位，直到结果靠谱为止，并直接在对话里生成表格、文档和可视化看板。还能按计划 7×24 自动运行（比如每天定时整理报表发进频道），零本地配置、云端运行，网页和手机都能用；配好的 agent 一键分享给团队，无需各自部署。
+感谢 Infistar.cc 无限星河赞助并为 js-reverse-mcp 提供模型服务支持！⚡ 稳定承载复杂调试任务：提供企业级高并发通道与多节点冗余，价格低至官方渠道 1 折，减少限流、429 和长任务断连问题。
 
-一句话：把"我 + 一个助手"升级成"我的团队 + 一群会协作的 agent"。
+🧠 一个 API Key 接入主流模型：支持 ChatGPT、Claude、Gemini、Kimi、GLM、DeepSeek 等模型，适配 Claude Code、Codex、Cursor 等 AI 编程工具。🔎 助力授权调试与安全研究：适用于脚本检索、断点分析、网络请求追踪、调用栈检查和代码逻辑理解等多步骤任务。
 
-👉 试试 [Bloome](https://bloome.im/app?ref=zhizhuodemao&utm_medium=github&utm_source=zhizhuodemao-js-reverse-mcp-ivor-202607)
+📦 项目用户专属福利：通过 [专属推广链接](https://www.infistar.cc/register?aff=JJXMRC86&ref_source=link) 注册并完成首次调用，即可领取 5 美元等值测试额度 / 首充专属优惠。
+
+定位：Claude Code / Codex 模型 API 配置支持。
 
 ## 功能特点
 
@@ -86,11 +88,15 @@ js-reverse-mcp 不再直接依赖 Patchright 的大众发行包，而是使用�
 claude mcp add js-reverse npx js-reverse-mcp
 ```
 
+如果你还没有可用的模型 API，或者需要配置自定义 API 地址，可以参考：[Claude Code / Codex 第三方模型 API 配置教程](docs/model-api-setup.md)。
+
 ### Codex
 
 ```bash
 codex mcp add js-reverse -- npx js-reverse-mcp
 ```
+
+如果你还没有可用的模型 API，或者需要配置自定义 API 地址，可以参考：[Claude Code / Codex 第三方模型 API 配置教程](docs/model-api-setup.md)。
 
 ### Cursor
 
