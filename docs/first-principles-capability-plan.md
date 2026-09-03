@@ -187,7 +187,7 @@ Safety constraints:
 - Globs are rejected.
 - Directories are rejected.
 - The path must point to a regular file.
-- Enforce a max file size. Proposed default: 5 MiB.
+- Enforce a max file size. Default: 10 MiB.
 - Paused call-frame evaluation should be more conservative because the payload is embedded into a CDP expression. Proposed default: 512 KiB.
 - Tool description must warn that file contents are passed into page JS. If the function sends those contents over the network, local file content can leave the machine.
 

@@ -5,8 +5,12 @@
  */
 
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 import {test} from 'node:test';
 
+import {ToolError} from '../../src/ToolError.js';
 import {evaluateScript} from '../../src/tools/script.js';
 
 function createResponse(lines: string[]) {
@@ -140,4 +144,74 @@ test('evaluate_script terminates active Runtime work when cancelled', async () =
   assert.equal(terminateCalls, 1);
   evaluation.resolve(JSON.stringify({type: 'json', data: '1'}));
   await call;
+});
+
+test('evaluate_script accepts a running-page local file at the 10 MiB limit', async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'mcp-script-input-'));
+  const input = path.join(root, 'input.bin');
+  await fs.writeFile(input, Buffer.alloc(10 * 1024 * 1024, 0xff));
+  let expression = '';
+
+  try {
+    await evaluateScript.handler(
+      {
+        params: {
+          confirm: true,
+          function: '({localFile}) => localFile.size',
+          mainWorld: true,
+          confirmOverwrite: false,
+          localFilePath: input,
+        },
+      },
+      createResponse([]) as never,
+      {
+        debuggerContext: {
+          isEnabled: () => true,
+          isPaused: () => false,
+          terminateExecution: async () => undefined,
+        },
+        getSelectedFrame: () => ({
+          evaluate: async (value: string) => {
+            expression = value;
+            return JSON.stringify({type: 'json', data: '10485760'});
+          },
+        }),
+      } as never,
+    );
+
+    assert.match(expression, /"size":10485760/);
+  } finally {
+    await fs.rm(root, {recursive: true, force: true});
+  }
+});
+
+test('evaluate_script rejects a local file larger than 10 MiB', async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'mcp-script-input-'));
+  const input = path.join(root, 'input.bin');
+  await fs.writeFile(input, '');
+  await fs.truncate(input, 10 * 1024 * 1024 + 1);
+
+  try {
+    await assert.rejects(
+      evaluateScript.handler(
+        {
+          params: {
+            confirm: true,
+            function: '({localFile}) => localFile.size',
+            mainWorld: true,
+            confirmOverwrite: false,
+            localFilePath: input,
+          },
+        },
+        createResponse([]) as never,
+        {} as never,
+      ),
+      (error: unknown) =>
+        error instanceof ToolError &&
+        error.code === 'INVALID_ARGUMENT' &&
+        error.message.includes('10485760 bytes'),
+    );
+  } finally {
+    await fs.rm(root, {recursive: true, force: true});
+  }
 });

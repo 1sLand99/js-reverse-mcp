@@ -19,7 +19,7 @@ import {createToolOutputSchema, defineTool} from './ToolDefinition.js';
 // Default script evaluation timeout in milliseconds (30 seconds)
 const DEFAULT_SCRIPT_TIMEOUT = 30000;
 const INLINE_EVAL_RESULT_LIMIT = 8192;
-const MAX_LOCAL_FILE_BYTES = 5 * 1024 * 1024;
+const MAX_LOCAL_FILE_BYTES = 10 * 1024 * 1024;
 const MAX_PAUSED_LOCAL_FILE_BYTES = 512 * 1024;
 
 interface LocalFileInput {
@@ -217,7 +217,7 @@ export const evaluateScript = defineTool({
       .string()
       .optional()
       .describe(
-        'Absolute path to one host file passed as localFile; the browser never reads the path directly. Relative paths, file:// URLs, globs, ~, and directories are rejected, access is subject to --allowedRoots, and file contents may expose sensitive host data.',
+        'Absolute path to one host file passed as localFile; the browser never reads the path directly. Running-page input is limited to 10 MiB, while paused call-frame input remains limited to 512 KiB. Relative paths, file:// URLs, globs, ~, and directories are rejected, access is subject to --allowedRoots, and file contents may expose sensitive host data.',
       ),
   },
   handler: async (request, response, context) => {
